@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gasto de Transporte - UNEMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1> Modelación del gasto mensual en transporte urbano </h1>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <section class="calculator-panel">
+                <h2>Calcula tu Gasto Mensual</h2>
+                <p>Escenario principal para el cálculo base.</p>
+                <h3>Escenario 1 (Principal)</h3>
+                <form id="gastoForm">
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad de origen:</label>
+                        <select id="ciudad" name="ciudad">
+                            <option value="guayaquil">Guayaquil</option>
+                            <option value="babahoyo">Babahoyo</option>
+                            <option value="duran">Durán</option>
+                            <option value="otra">otra ciudad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="transporte">Medio de transporte:</label>
+                        <select id="transporte" name="transporte">
+                            <option value="bus">Bus</option>
+                            <option value="taxi">Taxi</option>
+                            <option value="motocicleta">Motocicleta</option>
+                            <option value="otro_transporte">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="viajes">Número de viajes mensuales (ida y vuelta):</label>
+                        <input type="number" id="viajes" name="viajes" required>
+                    </div>
+                    
+                    <div class="form-group" id="costoViajeGroup">
+                        <label for="costoViaje">Costo por viaje ($):</label>
+                        <input type="number" id="costoViaje" name="costoViaje" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gastoFijo">Gasto fijo mensual ($):</label>
+                        <input type="number" id="gastoFijo" name="gastoFijo" step="0.01" required>
+                    </div>
+                    
+                    <button type="submit" id="calcularGastoBtn">Calcular Gasto</button>
+                </form>
+                
+                <div id="resultado" class="resultado-box" style="display: none;">
+                    <h3>Resultado Escenario 1</h3>
+                    <p>Tu gasto mensual estimado es: <span id="gastoTotal"></span></p>
+                </div>
+            </section>
+
+            <section class="calculator-panel" id="comparacionPanel">
+                <h2>Compara Escenarios</h2>
+                <p>Define una alternativa para comparación directa.</p>
+                <h3>Escenario 2 (Alternativa)</h3>
+                <form id="comparacionForm">
+                    <div class="form-group">
+                        <label for="ciudad2">Ciudad de origen:</label>
+                        <select id="ciudad2" name="ciudad2">
+                            <option value="guayaquil">Guayaquil</option>
+                            <option value="babahoyo">Babahoyo</option>
+                            <option value="duran">Durán</option>
+                            <option value="otra">otra ciudad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="transporte2">Medio de transporte:</label>
+                        <select id="transporte2" name="transporte2">
+                            <option value="bus">Bus</option>
+                            <option value="taxi">Taxi</option>
+                            <option value="motocicleta">Motocicleta</option>
+                            <option value="otro_transporte">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="viajes2">Número de viajes mensuales (ida y vuelta):</label>
+                        <input type="number" id="viajes2" name="viajes2" required>
+                    </div>
+                    
+                    <div class="form-group" id="costoViajeGroup2">
+                        <label for="costoViaje2">Costo por viaje ($):</label>
+                        <input type="number" id="costoViaje2" name="costoViaje2" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gastoFijo2">Gasto fijo mensual ($):</label>
+                        <input type="number" id="gastoFijo2" name="gastoFijo2" step="0.01" required>
+                    </div>
+                    
+                    <button type="submit" id="compararEscenariosBtn">Comparar Escenarios</button>
+                </form>
+                
+                <div id="resultado2" class="resultado-box" style="display: none;">
+                    <h3>Resultado Escenario 2</h3>
+                    <p>Gasto mensual estimado: <span id="gastoTotal2"></span></p>
+                </div>
+            </section>
+        </div>
+
+        <section id="resultadosGenerales" class="calculator-section" style="display: none;">
+            <div class="grafico-container">
+                <canvas id="gastoChart"></canvas>
+            </div>
+            
+            <div id="comparacion" class="comparacion-section">
+                <h3>Tabla de Alternativas de Transporte</h3>
+                <p>Analiza y compara el gasto estimado para diferentes opciones en la misma ciudad.</p>
+                <table id="comparacion-tabla">
+                    <thead>
+                        <tr>
+                            <th>Ciudad</th>
+                            <th>Transporte</th>
+                            <th>Viajes (Base)</th>
+                            <th>Costo por viaje</th>
+                            <th>Gasto Fijo (Base)</th>
+                            <th>Gasto Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

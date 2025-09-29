@@ -1,0 +1,241 @@
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eef4f9; 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #004d99; 
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.calculator-container {
+    display: flex;
+    gap: 30px; 
+    max-width: 900px; 
+    width: 100%;
+    margin-bottom: 30px;
+    flex-wrap: wrap; 
+}
+
+.calculator-panel {
+    flex: 1; 
+    min-width: 350px; 
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.calculator-panel h2 {
+    font-size: 1.6em;
+    color: #004d99;
+    border-bottom: 3px solid #e65c00;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.calculator-panel h3 {
+    color: #e65c00;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #e65c00;
+    box-shadow: 0 0 5px rgba(230, 92, 0, 0.5);
+    outline: none;
+}
+
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#calcularGastoBtn {
+    background-color: #004d99; 
+    color: white;
+}
+
+#calcularGastoBtn:hover {
+    background-color: #003366;
+}
+
+#compararEscenariosBtn {
+    background-color: #ff8c00;
+    color: white;
+}
+
+#compararEscenariosBtn:hover {
+    background-color: #e67e00; 
+}
+
+
+
+.resultado-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px solid #004d99;
+    border-radius: 8px;
+    background-color: #f0f7ff; 
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.resultado-box h3 {
+    color: #003366;
+    margin-top: 0;
+    font-size: 1.3em;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.resultado-box p {
+    font-size: 1.1em;
+    color: #444;
+}
+
+#gastoTotal, #gastoTotal2 {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #e65c00; 
+}
+
+
+
+.calculator-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    max-width: 900px; 
+    width: 100%;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.grafico-container {
+    margin-top: 0;
+    width: 100%;
+    height: 400px; 
+    margin-bottom: 30px;
+}
+
+
+.comparacion-section {
+    text-align: left;
+}
+
+.comparacion-section h3 {
+    color: #003366;
+    border-bottom: 2px solid #e65c00;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#comparacion-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#comparacion-tabla th,
+#comparacion-tabla td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#comparacion-tabla thead th {
+    background-color: #004d99;
+    color: white;
+    font-weight: 600;
+}
+
+#comparacion-tabla tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+
+#comparacion-tabla .destacado {
+    background-color: #d1e7dd; 
+}
+
+
+@media (max-width: 950px) {
+    .calculator-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .calculator-panel {
+        min-width: unset;
+        width: 100%;
+    }
+}
